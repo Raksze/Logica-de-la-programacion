@@ -1,0 +1,189 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string number1, number2, number3;
+            int number1int, number2int, number3int;
+            int order1 = 0, order2 = 0, order3 = 0;
+            //int even = 0, uneven = 0;
+            bool even1, even2;
+            bool A = false, B = false, C = false, result = false;
+            Console.WriteLine("Introduce el primer número");
+            number1 = Console.ReadLine();
+            Console.WriteLine("Introduce el segundo número");
+            number2 = Console.ReadLine();
+            Console.WriteLine("Introduce el tercer número");
+            number3 = Console.ReadLine();
+            number1int = Convert.ToInt32(number1);
+            number2int = Convert.ToInt32(number2);
+            number3int = Convert.ToInt32(number3);
+            if (number3int == number2int && number2int == number1int)
+            {
+                Console.WriteLine("Los tres números son iguales"); //Dados tres números decir si los tres son el mismo
+                Console.ReadLine();
+            }
+            else
+            {
+                if (number1int >= number2int && number1int >= number3int)
+                {
+                    Console.WriteLine("El número " + number1int + " es el mayor de los tres"); //Dados tres números, decir cual de los tres es el más grande de todos
+                    order3 = number1int;
+                    if (number2int > number3int)
+                    {
+                        order2 = number2int;
+                        order1 = number3int;
+                    }
+                    else
+                    {
+                        order2 = number3int;
+                        order1 = number2int;
+                    }
+                }
+                else
+                {
+                    if (number2int >= number1int && number2int >= number3int)
+                    {
+                        Console.WriteLine("El número " + number2int + " es el mayor de los tres");
+                        order3 = number2int;
+                        if (number1int > number3int)
+                        {
+                            order2 = number1int;
+                            order1 = number3int;
+                        }
+                        else
+                        {
+                            order2 = number3int;
+                            order1 = number1int;
+                        }
+                    }
+                    else
+                    {
+                        if (number3int >= number2int && number3int >= number1int)
+                        {
+                            Console.WriteLine("El número " + number3int + " es el mayor de los tres");
+                            order3 = number3int;
+                            if (number1int > number2int)
+                            {
+                                order2 = number1int;
+                                order1 = number2int;
+                            }
+                            else
+                            {
+                                order2 = number2int;
+                                order1 = number1int;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ninguno de los números es mayor que el otro");
+                        }
+                    }
+
+                }
+                Console.WriteLine("El orden de los números es " + order1 + ", " + order2 + ", y " + order3 + " de menor a mayor"); //Dados tres números mostrar por pantalla de menor a mayor
+                if (number1int > number2int && number2int > number3int)
+                {
+                    Console.WriteLine("Los números fueron ingresados originalmente en orden decreciente");
+                }
+                else
+                {
+                    if (number3int > number2int && number2int > number1int)
+                    {
+                        Console.WriteLine("Los números fueron ingresados originalmente en orden creciente");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Los números no fueron asignados en ningún orden especifico");
+                    }
+                }
+            }
+
+            Console.WriteLine("Ingrese dos números para identificar si son pares o impares"); //Dados dos números, que diga en una sola línea si, ambos son impares, ambos son pares, o uno es par y el otro impar.
+            number1 = Console.ReadLine();
+            number2 = Console.ReadLine();
+            number1int = Convert.ToInt32(number1);
+            number2int = Convert.ToInt32(number2);
+            /* if ((number2int % 2) == 0 && (number1int % 2) == 0)
+             {
+                 Console.WriteLine("Los dos números son pares");
+             }
+             else
+             {
+                 if ((number2int % 2) != 0 && (number1int % 2) != 0)
+                 {
+                     Console.WriteLine("Los dos números son impares");
+                 }
+                 else
+                 {
+                     if((number2int % 2) == 0)
+                     {
+                         even = number2int;
+                         uneven = number1int;
+                     }
+                     else
+                     {
+                         even = number1int;
+                         uneven = number2int;
+                     }
+                     Console.WriteLine("El número " + even + " es par y el número " + uneven + " es impar");
+                 }
+
+             }
+             */
+            if ((number1int % 2) == 0) { even1 = true; } else { even1 = false; }
+            if ((number2int % 2) == 0) { even2 = true; } else { even2 = false; }
+            if (even1 == true && even2 == true)
+            {
+                Console.WriteLine("Los dos números son pares");
+            }
+            else
+            {
+                if (even1 == false && even2 == false)
+                {
+                    Console.WriteLine("Los dos números son impares");
+                }
+                else
+                {
+                    if (even1 == true)
+                    {
+                        Console.WriteLine("El número " + number1int + " es par y el número " + number2int + " es impar");
+                    }
+                    else
+                    {
+                        Console.WriteLine("El número " + number2int + " es par y el número " + number1int + " es impar");
+                    }
+                }
+            }
+            Console.WriteLine("Inserte True o False para determinar la variable booleana A"); //Dados tres booleanos, mostrar por pantalla que sucede de haber (A y B) o C
+
+            while (number1 != "true" && number1 != "false")
+            {
+                number1 = Console.ReadLine();
+            }
+            A = Convert.ToBoolean(number1);
+            Console.WriteLine("Inserte True o False para determinar la variable booleana B");
+            while (number2 != "true" && number2 != "false")
+            {
+                number2 = Console.ReadLine();
+            }
+            B = Convert.ToBoolean(number2);
+            Console.WriteLine("Inserte True o False para determinar la variable booleana C");
+            while (number3 != "true" && number3 != "false")
+            {
+                number3 = Console.ReadLine();
+            }
+            C = Convert.ToBoolean(number3);
+            result = (A && B) || C;
+            Console.WriteLine("El resultado de '(A AND B) OR C' es " + result);
+            Console.ReadLine();
+        }
+    }
+}
